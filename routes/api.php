@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/verify', [UserController::class, 'verify']);
 Route::post('/login', [UserController::class, 'login']);
-Route::middleware('auth:api')->group(function () {
+Route::middleware('jwt.verify')->group(function () {
     Route::post('/logout', [UserController::class, 'logout']);
     Route::get('/todos', [ToDoController::class, 'index']);
     Route::post('/todos', [ToDoController::class, 'store']);

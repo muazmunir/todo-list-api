@@ -47,7 +47,7 @@ class UserController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'verification_code' => 'required|digits:6', // Assuming verification code is 6 digits
+            'verification_code' => 'required', // Assuming verification code is 6 digits
         ]);
 
         $user = User::where('email', $request->email)
